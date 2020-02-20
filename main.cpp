@@ -1,5 +1,4 @@
 #include <stdio.h>
-//#include <opencv2/opencv.hpp>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -8,8 +7,7 @@
 
 #define PALYAX 23
 #define PALYAY 20
-//using namespace cv;
-
+//class minesweeper {
 typedef struct {
 	uint32_t sizex;
 	uint32_t sizey;
@@ -27,7 +25,6 @@ typedef  struct{
 	uint32_t y;
 }t_step;
 
-t_aknamezo_palya aknamezo;
 
 int generate_minefield(t_aknamezo_palya * aknamezo ){
 
@@ -78,11 +75,18 @@ int printminefield(t_aknamezo_palya * mine){
 	return 0;
 }
 
-int step_on_minefield(t_aknamezo_palya * mine){
-//	if(mine)
+int step_on_minefield(t_aknamezo_palya * mine, t_step * step){
+	uint32_t val=mine->palya[step->x][step->y];
+	if(val>10){printf("\r\n\n\n\n\n\n\n\n\nBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMMMMMMMMMMMMMM!!");
+	return -1;}
+	else{
 	return 0;
+	}
 }
 
+//}
+
+t_aknamezo_palya aknamezo;
 int main(int argc, char** argv )
 {
 
@@ -91,9 +95,14 @@ aknamezo.mines_number=10;
 aknamezo.sizex=PALYAX;
 aknamezo.sizey=PALYAY;
 generate_minefield(&aknamezo);
-
+t_step step;
+int i=0;
+do{
+step.type=0;step.x=(uint32_t)(rand()%(aknamezo.sizex-1)),step.y=(uint32_t)(rand()%(aknamezo.sizey-1));
+printf("\r\nround %d new step on x %d y %d \r\n", ++i,step.x+1,step.y+1);
 printminefield(&aknamezo);
-
+}
+while(0==step_on_minefield(&aknamezo,&step));
 //    waitKey(0);
     return 0;
 }
