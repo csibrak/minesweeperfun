@@ -2,11 +2,13 @@
 //#include <opencv2/opencv.hpp>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <time.h>
+#include <string.h>
 
 #define PALYAX 23
 #define PALYAY 20
-using namespace cv;
+//using namespace cv;
 
 typedef struct {
 	uint32_t sizex;
@@ -29,7 +31,7 @@ t_aknamezo_palya aknamezo;
 
 int generate_minefield(t_aknamezo_palya * aknamezo ){
 
-	bzero(&(aknamezo->palya), aknamezo->sizex * aknamezo->sizey * sizeof(int)) ;
+	memset(aknamezo->palya, 0, aknamezo->sizex * aknamezo->sizey * sizeof(int));
 	srand(time(0));
 	if(aknamezo->sizex<2){printf("size error");return -1;}
 	if(aknamezo->sizey<2){printf("size error");return -1;}
@@ -92,6 +94,6 @@ generate_minefield(&aknamezo);
 
 printminefield(&aknamezo);
 
-    waitKey(0);
+//    waitKey(0);
     return 0;
 }
