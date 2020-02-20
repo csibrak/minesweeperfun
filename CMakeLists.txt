@@ -4,6 +4,4 @@ project( minesweeperfun )
 #add_subdirectory( src )
 #include_directories( ${OpenCV_INCLUDE_DIRS} )
 add_executable( minesweeperfun main.cpp )
-target_link_libraries( minesweeperfun \
-#${OpenCV_LIBS} 
-)
+target_link_libraries( minesweeperfun )
