@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <opencv2/opencv.hpp>
+//#include <opencv2/opencv.hpp>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -83,22 +83,6 @@ int step_on_minefield(t_aknamezo_palya * mine){
 
 int main(int argc, char** argv )
 {
-//    if ( argc != 2 )
-//    {
-//        printf("usage: DisplayImage.out <Image_Path>\n");
-//        return -1;
-//    }
-//    Mat image;
-//    image = imread( argv[1], 1 );
-//    if ( !image.data )
-//    {
-//        printf("No image data \n");
-//        return -1;
-//    }
-//    namedWindow("Display Image", WINDOW_AUTOSIZE );
-//    imshow("Display Image", image);
-
-
 
 printf("palya size: %d of %d x %d y grid \r\n", sizeof(aknamezo.palya),PALYAX,PALYAY);
 aknamezo.mines_number=10;
